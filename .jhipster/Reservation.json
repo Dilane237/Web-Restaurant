@@ -1,0 +1,31 @@
+{
+    "name": "Reservation",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tables",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reservedAt",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "reservationTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190608203608",
+    "entityTableName": "reservation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

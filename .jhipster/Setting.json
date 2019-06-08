@@ -1,0 +1,43 @@
+{
+    "name": "Setting",
+    "fields": [
+        {
+            "fieldName": "restaurantName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberOfTable",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberPersonTable",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tables",
+            "otherEntityRelationshipName": "setting",
+            "relationshipName": "tables"
+        }
+    ],
+    "changelogDate": "20190608203610",
+    "entityTableName": "setting",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

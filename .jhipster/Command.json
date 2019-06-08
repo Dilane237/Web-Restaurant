@@ -1,0 +1,41 @@
+{
+    "name": "Command",
+    "fields": [
+        {
+            "fieldName": "commandAt",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "serve",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "command",
+            "relationshipName": "command"
+        }
+    ],
+    "changelogDate": "20190608203603",
+    "entityTableName": "command",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Tables",
+    "fields": [
+        {
+            "fieldName": "placesAvailable",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isReserved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "user",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "tables",
+            "relationshipName": "customer"
+        },
+        {
+            "relationshipName": "setting",
+            "otherEntityName": "setting",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190608203607",
+    "entityTableName": "tables",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,27 @@
+{
+    "name": "TypeOfMenu",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "typeOfMenu",
+            "relationshipName": "typesOfMenu"
+        }
+    ],
+    "changelogDate": "20190608203605",
+    "entityTableName": "type_of_menu",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

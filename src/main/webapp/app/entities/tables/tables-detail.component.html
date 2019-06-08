@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tables">
+            <h2><span>Tables</span> {{tables.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Places Available</span></dt>
+                <dd>
+                    <span>{{tables.placesAvailable}}</span>
+                </dd>
+                <dt><span>Is Reserved</span></dt>
+                <dd>
+                    <span>{{tables.isReserved}}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    <span>{{tables.user}}</span>
+                </dd>
+                <dt><span>Setting</span></dt>
+                <dd>
+                    <div *ngIf="tables.setting">
+                        <a [routerLink]="['/setting-my-suffix', tables.setting?.id, 'view']">{{tables.setting?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tables', tables.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

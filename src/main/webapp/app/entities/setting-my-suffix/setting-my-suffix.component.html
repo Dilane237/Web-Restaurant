@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span>Settings</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-setting-my-suffix" [routerLink]="['/setting-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Setting
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="settings">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Restaurant Name</span></th>
+            <th><span>Number Of Table</span></th>
+            <th><span>Address</span></th>
+            <th><span>Phone Number</span></th>
+            <th><span>Number Person Table</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let setting of settings ;trackBy: trackId">
+                <td><a [routerLink]="['/setting-my-suffix', setting.id, 'view' ]">{{setting.id}}</a></td>
+                <td>{{setting.restaurantName}}</td>
+                <td>{{setting.numberOfTable}}</td>
+                <td>{{setting.address}}</td>
+                <td>{{setting.phoneNumber}}</td>
+                <td>{{setting.numberPersonTable}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/setting-my-suffix', setting.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/setting-my-suffix', setting.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'setting-my-suffix', { outlets: { popup: setting.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billing">
+            <h2><span>Billing</span> {{billing.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Total Price</span></dt>
+                <dd>
+                    <span>{{billing.totalPrice}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{billing.status}}</span>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="billing.customer">
+                        <a [routerLink]="['/customer-my-suffix', billing.customer?.id, 'view']">{{billing.customer?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Command</span></dt>
+                <dd>
+                    <div *ngIf="billing.command">
+                        <a [routerLink]="['/command-my-suffix', billing.command?.id, 'view']">{{billing.command?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-my-suffix', billing.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

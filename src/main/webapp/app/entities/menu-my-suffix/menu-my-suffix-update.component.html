@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-menu-my-suffix-heading">Create or edit a Menu</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!menu.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_image">Image</label>
+                    <input type="text" class="form-control" name="image" id="field_image"
+                           formControlName="image"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_command">Command</label>
+                    <select class="form-control" id="field_command" name="command" formControlName="command">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commandOption.id === editForm.get('command').value?.id ? editForm.get('command').value : commandOption" *ngFor="let commandOption of commands; trackBy: trackCommandById">{{commandOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeOfMenu">Type Of Menu</label>
+                    <select class="form-control" id="field_typeOfMenu" name="typeOfMenu" formControlName="typeOfMenu">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeOfMenuOption.id === editForm.get('typeOfMenu').value?.id ? editForm.get('typeOfMenu').value : typeOfMenuOption" *ngFor="let typeOfMenuOption of typeofmenus; trackBy: trackTypeOfMenuById">{{typeOfMenuOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

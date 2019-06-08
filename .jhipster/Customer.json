@@ -1,0 +1,39 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "command",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "command"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "billing",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "billing"
+        },
+        {
+            "relationshipName": "tables",
+            "otherEntityName": "tables",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190608203602",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

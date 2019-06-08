@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tables-my-suffix-heading">Create or edit a Tables</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tables.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_placesAvailable">Places Available</label>
+                    <input type="number" class="form-control" name="placesAvailable" id="field_placesAvailable"
+                           formControlName="placesAvailable"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isReserved">Is Reserved</label>
+                    <input type="checkbox" class="form-control" name="isReserved" id="field_isReserved"
+                           formControlName="isReserved"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <input type="number" class="form-control" name="user" id="field_user"
+                           formControlName="user"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reservation">Reservation</label>
+                    <select class="form-control" id="field_reservation" name="reservation" formControlName="reservation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservationOption.id === editForm.get('reservation').value?.id ? editForm.get('reservation').value : reservationOption" *ngFor="let reservationOption of reservations; trackBy: trackReservationById">{{reservationOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_setting">Setting</label>
+                    <select class="form-control" id="field_setting" name="setting" formControlName="setting">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="settingOption.id === editForm.get('setting').value?.id ? editForm.get('setting').value : settingOption" *ngFor="let settingOption of settings; trackBy: trackSettingById">{{settingOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

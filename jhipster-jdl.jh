@@ -1,0 +1,88 @@
+entity Customer{
+	id Long,
+    name String
+}
+
+entity Command{
+	id Long
+    commandAt Instant,
+    quantity Long,
+    serve Boolean
+}
+
+entity Menu{
+	id Long,
+    name String,
+    image String,
+    price Long
+}
+
+entity TypeOfMenu{
+	id Long
+    name String
+}
+
+entity Billing{
+	id Long,
+    totalPrice Long,
+    status Boolean
+}
+
+entity Tables{
+	id Long,
+	placesAvailable Long,
+    isReserved Boolean,
+    user Long
+}
+
+entity Reservation{
+	id Long,
+    name String,
+    tables Long,
+    reservedAt Instant,
+    reservationTime Instant
+}
+
+entity Setting{
+	id Long,
+    restaurantName String,
+    numberOfTable Long,
+    address String,
+    phoneNumber String,
+    numberPersonTable Long
+}
+
+relationship OneToMany {
+	TypeOfMenu{typesOfMenu} to Menu
+}
+
+relationship OneToMany {
+	Command{command} to Menu
+}
+
+relationship OneToMany{
+	Tables{customer} to Customer
+}
+
+relationship OneToOne {
+	Billing{command} to Command
+}
+
+relationship OneToMany{
+	Customer{command} to Command
+    Customer{billing} to Billing
+}
+
+relationship OneToMany{
+	Setting{tables} to Tables
+}
+
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+ //angularSuffix * with mySuffix
